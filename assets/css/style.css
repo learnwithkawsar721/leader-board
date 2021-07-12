@@ -105,6 +105,9 @@ hr {
   color: #9f9f9f;
 }
 /* Latest Course Style  */
+.course-card {
+  flex-basis: 100%;
+}
 .course-container {
   margin-top: 30px;
   /* padding: 0; */
@@ -112,11 +115,13 @@ hr {
 .courses {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-gap: 24px;
   /* padding-top: 24px; */
 }
 .course-thumble img {
   width: 224px;
   height: 104px;
+  margin: auto;
 }
 .course-title {
   font-family: "Roboto", sans-serif;
@@ -124,7 +129,6 @@ hr {
   font-weight: 500;
   font-size: 20px;
   line-height: 30px;
-  max-width: 73%;
   color: #1e1e1e;
 }
 .course-text {
@@ -138,6 +142,7 @@ hr {
 .course-info {
   display: flex;
   align-items: baseline;
+  /* justify-content: space-around; */
 }
 .rating-valu {
   font-size: 14px;
@@ -165,4 +170,55 @@ hr {
 }
 .fa-clock.filled-clock {
   color: #ff4a60;
+}
+
+/*===========================
+ Media queary
+ =========================== */
+
+/* Mobile Devices */
+@media only screen and (max-width: 480px) {
+  .container {
+    width: 100%;
+  }
+  .players,
+  .courses,
+  .blogs {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .player,
+  .blog {
+    flex-direction: column;
+  }
+  /* End Player Style */
+  .course-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+}
+/* ===================
+iPads, Tablets
+====================== */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+  .players {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .blogs,
+  .courses {
+    grid-template-columns: repeat(1, 1fr);
+    grid-row: auto;
+  }
+  .blog {
+    justify-content: flex-start;
+  }
+  .course-card {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+  }
 }
